@@ -1,0 +1,23 @@
+<mat-toolbar style="padding-left: 10px;" color="primary">
+  <button mat-icon-button class="button-menu" (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>New Life</span>
+</mat-toolbar>
+<mat-drawer-container class="example-container" hasBackdrop="false" class="sidenavContainer">
+  <mat-drawer #drawer mode="side" class="sidenavDrawer">
+<div class = "menu">
+  <ul>
+  <li><button color="primary" routerLink = "/moradores" class = "menu-button">Moradores</button></li>
+  <li><button color="primary" routerLink = "/visitantes" class = "menu-button">Visitantes</button></li>
+  <li><button color="primary" routerLink = "/veiculos" class = "menu-button">Veículos</button></li>
+  <li><button color="primary" routerLink = "/funcionarios" class = "menu-button">Funcionários</button></li>
+  </ul>
+</div>
+</mat-drawer>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+<mat-drawer-container>
+
+

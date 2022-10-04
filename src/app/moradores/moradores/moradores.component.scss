@@ -1,0 +1,140 @@
+@import "src/variables.scss";
+
+th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type, th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+  padding: 0;
+  margin: 0;
+}
+
+.div-principal{
+  padding: 0 50px 25px 50px ;
+  height: 88vh;
+}
+
+
+th.mat-header-cell {
+  text-align: center;
+}
+
+h1{
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  color: $primary;
+  font-family: $font;
+  width: 228.53px;
+  margin-inline: auto;
+  margin-block-end: 15px;
+  margin-block-start: 25px;
+}
+
+.botao-adicionar{
+  //float: right;
+  padding: 5px 20px;
+  margin-left: 17px;
+}
+
+.botao-exportar{
+  //float: right;
+  padding: 5px 20px 5px 10px;
+}
+
+.download{
+  margin-right: 5px;
+}
+
+.botao-e-search{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search {
+  box-sizing: border-box;
+  width: 50%;
+  //display: inline;
+}
+
+.search mat-form-field {
+  width: 30%;
+}
+
+.tableForm {
+  margin: 0 auto;
+  width: 90%;
+}
+
+table{
+  margin-inline: auto;
+  width: 100%;
+}
+
+th{
+background: $primary;
+color: white;
+}
+
+td:nth-child(even){
+  background: #ededed;
+}
+
+/* td{
+  border-right : 1px solid #ededed;
+}
+
+tr:hover {background-color: #ededed;} */
+
+td{
+  text-align: center;
+}
+
+.mat-column-idApto{
+  width: 5%;
+}
+
+.mat-column-nome{
+  width: 14%;
+}
+
+.mat-column-rg{
+  width: 7%;
+}
+
+.mat-column-cpf{
+  width: 8%;
+}
+
+.mat-column-telefone1{
+  width: 8%;
+}
+
+.mat-column-telefone2{
+  width: 8%;
+}
+
+.mat-column-email{
+  width: 14%;
+}
+
+.mat-column-contatoEmerg{
+  width: 12%;
+}
+
+.mat-column-telefoneEmerg{
+  width: 8%;
+}
+
+.mat-column-obs{
+  width: 10%;
+}
+
+.mat-column-acoes{
+  width: 6%;
+}
+
+.paginator {
+  margin: 2.5% auto;
+  width: 39.7%;
+}

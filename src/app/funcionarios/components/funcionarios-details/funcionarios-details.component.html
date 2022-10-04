@@ -1,0 +1,87 @@
+<div class="div-principal">
+  <mat-card>
+  <h1><b>{{(isEdit?'Atualizar':'Adicionar')}} Funcionário</b></h1>
+<form class="formulario" [formGroup]="funcionariosForm">
+  <mat-form-field appearance="outline" class="form-nome">
+    <mat-label> Nome </mat-label>
+    <input
+    matInput
+    type="text"
+    formControlName="nome">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-apto">
+    <mat-label>Apto</mat-label>
+      <mat-select disableOptionCentering formControlName="idApto" [disabled]="isEdit">
+        <mat-option *ngFor="let apartamentos of aptoList" [value]="apartamentos.idApto">
+          {{ apartamentos.numeroApto }}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-rg">
+    <mat-label> RG </mat-label>
+    <input
+    pattern="[0-9]{9}"
+    matInput
+    type="text"
+    formControlName="rg"
+    mask="00.000.000-0"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-cpf">
+    <mat-label> CPF </mat-label>
+    <input
+    pattern="[0-9]{11}"
+    matInput
+    type="text"
+    formControlName="cpf"
+    mask="000.000.000-00"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-telefone1">
+    <mat-label> Telefone Primário </mat-label>
+    <input
+    pattern="[0-9]{11}"
+    matInput
+    type="text"
+    formControlName="telefone1"
+    mask="(00) 00000-0000"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-telefone2">
+    <mat-label> Telefone Secundário </mat-label>
+    <input
+    pattern="[0-9]{11}"
+    matInput
+    type="text"
+    formControlName="telefone2"
+    mask="(00) 00000-0000"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-observacoes">
+    <mat-label> Observações </mat-label>
+    <textarea
+    matInput
+    type="text"
+    formControlName="obs"></textarea>
+  </mat-form-field>
+
+  <div class = "buttons">
+    <button mat-raised-button type = "reset" color="warn"
+    routerLink="..">Cancelar</button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="!isEdit ? create() : update()"
+      [disabled]="!funcionariosForm.valid"
+    >
+      {{ (isEdit?'Atualizar':'Salvar') }}
+    </button>
+
+  </div>
+</form>
+</mat-card>
+</div>
+

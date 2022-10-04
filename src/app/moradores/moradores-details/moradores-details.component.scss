@@ -1,0 +1,95 @@
+@import "src/variables.scss";
+
+.div-principal{
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88vh;
+
+}
+
+.mat-form-field{
+  margin-right: 0;
+  margin-left: 0;
+  margin-top: -20px;
+  margin-bottom: -5px;
+
+  padding: -15px 0 -15px 0;
+}
+
+mat-card{
+  background-color: rgb(247, 247, 247);
+  padding: 25px;
+  width: 75%;
+}
+
+h1{
+  color: $primary;
+  font-family: $font;
+  margin-bottom: 40px;
+}
+
+mat-form-field{
+  margin: 10px;
+}
+
+form{
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+textarea{
+  height: 15.75px;
+}
+
+.form-nome{
+  width: 38.82%;
+}
+
+.form-apto{
+  width: 7%;
+}
+
+.form-rg{
+ width: 24%;
+}
+
+.form-cpf{
+  width: 24%;
+}
+
+.form-telefone1{
+  width: 18.4%;
+}
+
+.form-telefone2{
+  width: 18.4%;
+}
+
+.form-email{
+  width: 59%;
+}
+
+.form-contatoEmerg{
+  width: 30%;
+}
+
+.form-telefoneEmerg{
+  width: 18.4%;
+}
+
+.form-observacoes{
+  width: 47.35%;
+}
+
+.buttons{
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  gap: 32px;
+  width: 100%;
+  padding-right: 0.2%;
+}
+
