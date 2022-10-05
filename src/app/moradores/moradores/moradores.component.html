@@ -4,6 +4,40 @@
   </header>
 <div>
 <div class="botao-e-search">
+  <form [formGroup]="fileForm">
+    <div fxLayout="row" fxLayoutGap="1%" id="row1" fxAlignItems="center">
+      <div class="full-width">
+        <mat-form-field fxFlex="100%" appearance="outline">
+          <mat-label> File </mat-label>
+          <input
+            matInput
+            formControlName="file"
+            (click)="fileInput.click()"
+            readonly="true"
+          />
+          <mat-icon matSuffix (click)="fileInput.click()">attach_file</mat-icon>
+        </mat-form-field>
+        <input
+          type="file"
+          accept=".xlsx"
+          (change)="loadFile($event)"
+          #fileInput
+          hidden
+          fxFlex="86.25%"
+        />
+      </div>
+      <div class="th-wrap-15">
+        <button
+          [disabled]="!file"
+          (click)="importFile();"
+          class="button"
+          mat-raised-button
+          fxFlex="100%">
+          Upload
+        </button>
+      </div>
+    </div>
+  </form>
   <div class="search">
     <mat-form-field appearance="outline">
       <mat-label>Pesquisar</mat-label>

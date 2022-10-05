@@ -1,6 +1,6 @@
 import { DialogConfirmacaoComponent } from '../../shared/dialog-confirmacao/dialog-confirmacao.component';
 import { MoradoresService } from './../services/moradores.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { PageEvent } from '@angular/material/paginator';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
@@ -17,6 +17,9 @@ const EXCEL_EXTENSION = '.xlsx';
 })
 export class MoradoresComponent implements OnInit {
 
+  fileForm = this.form.group({
+    file: ['',Validators.required],
+  })
   moradores = new MatTableDataSource();
   displayedColumns =['idApto','nome','rg','cpf','telefone1',
   'telefone2','email','contatoEmerg','telefoneEmerg','obs','acoes'];
@@ -169,6 +172,35 @@ export class MoradoresComponent implements OnInit {
     fs.saveAs(
       data,
       fileName + EXCEL_EXTENSION
+    );
+  }
+
+  file: any;
+
+  loadFile(event: any){
+    if(event.target.files && event.target.files[0]){
+      this.file =event.target.files[0];
+      this.fileForm.patchValue({
+        file: this.file.name
+      })
+    }
+  }
+
+  importFile(){
+    this.fileForm.reset();
+    this.moradoresService.importMorador(this.file).subscribe(
+      (success)=>{
+        this.file = null;
+        this.confirmDialog('Importação concluída!');
+        this.ngOnInit();
+      },
+      (error)=>{
+        if(error.error.status===400){
+          this.confirmDialog("Falha")
+        }
+        this.file =null;
+        this.ngOnInit();
+      },()=>{}
     );
   }
 }
