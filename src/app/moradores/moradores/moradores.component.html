@@ -4,10 +4,15 @@
   </header>
 <div>
 <div class="botao-e-search">
-  <form [formGroup]="fileForm">
-    <div fxLayout="row" fxLayoutGap="1%" id="row1" fxAlignItems="center">
-      <div class="full-width">
-        <mat-form-field fxFlex="100%" appearance="outline">
+  <div class="search">
+    <mat-form-field appearance="outline">
+      <mat-label>Pesquisar</mat-label>
+      <input matInput type="text" [formControl]="filterControl" />
+    </mat-form-field>
+  </div>
+  <form [formGroup]="fileForm"  class="file-form-div">
+    <div>
+        <mat-form-field fxFlex="100%" appearance="outline"  class="file-form">
           <mat-label> File </mat-label>
           <input
             matInput
@@ -23,27 +28,19 @@
           (change)="loadFile($event)"
           #fileInput
           hidden
-          fxFlex="86.25%"
         />
-      </div>
-      <div class="th-wrap-15">
+
         <button
+          color="primary"
           [disabled]="!file"
           (click)="importFile();"
-          class="button"
-          mat-raised-button
-          fxFlex="100%">
+          class="botao-upload"
+          mat-raised-button>
           Upload
         </button>
-      </div>
+
     </div>
   </form>
-  <div class="search">
-    <mat-form-field appearance="outline">
-      <mat-label>Pesquisar</mat-label>
-      <input matInput type="text" [formControl]="filterControl" />
-    </mat-form-field>
-  </div>
   <div>
   <button mat-raised-button color="primary" class="botao-exportar" (click)="exportExcel()">
     <mat-icon class="download">download</mat-icon>Exportar Moradores
